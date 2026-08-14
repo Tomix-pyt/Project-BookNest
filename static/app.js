@@ -31,7 +31,7 @@
   var SHELVES = [
     { id: 'all', label: 'All' },
     { id: 'want', label: 'Want to Read' },
-    { id: 'reading', label: 'Currently Reading' },
+    { id: 'reading', label: 'Reading' },
     { id: 'finished', label: 'Finished' }
   ];
   var STATUS_LABEL = { want: 'Want to read', reading: 'Reading', finished: 'Finished' };
@@ -171,7 +171,7 @@
 
   function shelfActionButtons(b) {
     return state.view === 'library'
-      ? (b.status !== 'reading' ? '<button class="icon-btn" data-act="mark-reading" aria-label="Move to Currently Reading" title="Currently reading">' + clockIcon() + '</button>' : '') +
+      ? (b.status !== 'reading' ? '<button class="icon-btn" data-act="mark-reading" aria-label="Move to Reading" title="Currently reading">' + clockIcon() + '</button>' : '') +
         (b.status !== 'finished' ? '<button class="icon-btn" data-act="mark-finished" aria-label="Move to Finished" title="Finished">' + checkIcon() + '</button>' : '')
       : '';
   }
@@ -414,7 +414,7 @@
         else { saveBook(Object.assign({}, book)); toast('Added to Shelf'); }
       } else if (act.dataset.act === 'mark-reading') {
         moveToShelf(book.id, 'reading');
-        toast('Moved to Currently Reading');
+        toast('Moved to Reading');
       } else if (act.dataset.act === 'mark-finished') {
         moveToShelf(book.id, 'finished');
         toast('Moved to Finished');
