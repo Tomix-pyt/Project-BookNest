@@ -10,19 +10,20 @@
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#38bdf8" />
-<link rel="manifest" href="./manifest.json" />
-<link rel="icon" href="./icon-192.png" />
-<link rel="apple-touch-icon" href="./icon-192.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
+<link rel="icon" href="{{ url_for('static', filename='icons/icon-192.png') }}" />
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-192.png') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 <div class="app">
   <!-- Left icon rail -->
   <aside class="rail" aria-label="Main navigation">
-    <div class="rail-logo" title="BookNest"><img src="./icons/app-icon.png" alt="BN" /></div>
+    <div class="rail-logo" title="BookNest">
+        <img src="{{ url_for('static', filename='icons/app-icon.png') }}" alt="BN" />
+    </div>
     <nav class="rail-nav">
       <button class="rail-btn is-active" data-view="search" aria-label="Search books" title="Search">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
@@ -97,6 +98,6 @@
   </main>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="./app.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
