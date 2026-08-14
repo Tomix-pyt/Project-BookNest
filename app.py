@@ -7,6 +7,10 @@ app = Flask(__name__)
 def get_home():
     return render_template('index.html')
 
+@app.route("/sw.js")
+def service_worker():
+    return app.send_static_file("sw.js")
+
 
 if __name__ == '__main__':
     app.run(debug=True)
