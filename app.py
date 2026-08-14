@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,send_from_directory
 
 app = Flask(__name__)
 
@@ -9,8 +9,8 @@ def get_home():
 
 @app.route("/sw.js")
 def service_worker():
-    return app.send_static_file("sw.js")
-
+    # print(app.root_path)
+    return send_from_directory(app.root_path, "sw.js")
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
